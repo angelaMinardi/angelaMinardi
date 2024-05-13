@@ -20,6 +20,4 @@ I'm Angela, a computer science student with a passion for technology and innovat
 
 - 😄 Pronouns: She/Her
 
-- ⚡ Fun fact: I'm an adventurous hiker who once trekked up a mountain in the rain at night just to catch the sunrise. On the way down, I had a surprise encounter with a curious black bear!
-
 Feel free to explore my repositories and don't hesitate to reach out for collaboration or discussions on any of the topics I'm interested in! 😊
