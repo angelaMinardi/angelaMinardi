@@ -1,0 +1,118 @@
+/* Smart Insole Device Tree Overlay for nRF52840 */
+
+/ {
+    aliases {
+        spi-imu = &spi1;
+        i2c-temp = &i2c0;
+    };
+
+    /* GPIO pins for CD74HC4051 analog MUX select lines */
+    mux_select: mux-select-pins {
+        compatible = "gpio-leds";
+        mux_s0: mux_s0 {
+            gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>;  /* P0.03 - S0 */
+            label = "MUX_S0";
+        };
+        mux_s1: mux_s1 {
+            gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;  /* P0.04 - S1 */
+            label = "MUX_S1";
+        };
+        mux_s2: mux_s2 {
+            gpios = <&gpio0 28 GPIO_ACTIVE_HIGH>; /* P0.28 - S2 */
+            label = "MUX_S2";
+        };
+    };
+
+    /* IMU interrupt pin */
+    imu_int: imu-interrupt {
+        compatible = "gpio-keys";
+        imu_int1: imu_int1 {
+            gpios = <&gpio0 29 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; /* P0.29 - INT1 */
+            label = "IMU_INT1";
+        };
+    };
+};
+
+/* ADC for FSR input via MUX output on AIN0 (P0.02) */
+&adc {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    channel@0 {
+        reg = <0>;
+        zephyr,gain = "ADC_GAIN_1_6";
+        zephyr,reference = "ADC_REF_INTERNAL";
+        zephyr,acquisition-time = <ADC_ACQ_TIME(ADC_ACQ_TIME_MICROSECONDS, 40)>;
+        zephyr,input-positive = <NRF_SAADC_AIN0>; /* P0.02 */
+        zephyr,resolution = <12>;
+    };
+};
+
+/* SPI1 for BMI270 IMU */
+&spi1 {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 31 GPIO_ACTIVE_LOW>; /* P0.31 - CS */
+
+    bmi270: bmi270@0 {
+        compatible = "bosch,bmi270";
+        reg = <0>;
+        spi-max-frequency = <8000000>;
+        label = "BMI270";
+    };
+};
+
+/* I2C0 for TMP117 Temperature Sensor */
+&i2c0 {
+    status = "okay";
+    compatible = "nordic,nrf-twim";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+    clock-frequency = <I2C_BITRATE_FAST>;
+
+    tmp117: tmp117@48 {
+        compatible = "ti,tmp117";
+        reg = <0x48>;
+        label = "TMP117";
+    };
+};
+
+/* Pin control for SPI1 */
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 27)>,   /* P0.27 - SCK  */
+                    <NRF_PSEL(SPIM_MOSI, 0, 26)>,  /* P0.26 - MOSI */
+                    <NRF_PSEL(SPIM_MISO, 1, 8)>;   /* P1.08 - MISO */
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 27)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 26)>,
+                    <NRF_PSEL(SPIM_MISO, 1, 8)>;
+            low-power-enable;
+        };
+    };
+
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 24)>,  /* P0.24 - SDA */
+                    <NRF_PSEL(TWIM_SCL, 0, 25)>;   /* P0.25 - SCL */
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 24)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 25)>;
+            low-power-enable;
+        };
+    };
+};

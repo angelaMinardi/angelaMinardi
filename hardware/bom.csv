@@ -1,0 +1,40 @@
+Reference,Part Number,Manufacturer,Description,Quantity,Package,Unit Cost USD,Total Cost USD,Supplier,Supplier PN
+U1,NRF52840-QIAA-R7,Nordic Semiconductor,ARM Cortex-M4F SoC with BLE 5.0 1MB Flash 256KB RAM,1,aQFN73 7x7mm,4.50,4.50,DigiKey,NRF52840-QIAA-R7-ND
+U2,BMI270,Bosch Sensortec,Ultra-low power 6-axis IMU accelerometer + gyroscope,1,LGA-14 2.5x3mm,3.00,3.00,DigiKey,828-BMI270TR-ND
+U3,TMP117AIDRVR,Texas Instruments,High-accuracy digital temperature sensor I2C +/-0.1C,1,SOT-563 1.6x1.2mm,1.80,1.80,DigiKey,296-TMP117AIDRVR-ND
+U4,CD74HC4051M96,Texas Instruments,8-channel analog multiplexer/demultiplexer,1,SOIC-16 9.9x3.9mm,0.50,0.50,DigiKey,296-CD74HC4051M96-ND
+U5,MCP73831T-2ACI/OT,Microchip,Single-cell Li-Ion/Li-Po charge controller 500mA,1,SOT-23-5,0.60,0.60,DigiKey,MCP73831T-2ACI/OT-ND
+U6,TPS62740DSSR,Texas Instruments,3.3V step-down converter 360nA Iq 300mA,1,DSS-10 2x2mm,1.80,1.80,DigiKey,296-TPS62740DSSR-ND
+U7,PRTR5V0U2X,Nexperia,Ultra-low capacitance ESD protection USB,1,SOT-143B,0.30,0.30,DigiKey,1727-PRTR5V0U2X215-ND
+FSR1-FSR8,FSR 402,Interlink Electronics,Force Sensitive Resistor 12.7mm round 0.2N-20N,8,Through-hole round,5.50,44.00,DigiKey,1027-1001-ND
+Y1,NX3225GD-32M-STD-CSR-4,NDK,32MHz crystal 12pF 10ppm,1,3225 3.2x2.5mm,0.50,0.50,DigiKey,644-NX3225GD-32M-ND
+Y2,ABS07-120-32.768KHZ-T,Abracon,32.768kHz crystal 12.5pF 20ppm,1,3215 3.2x1.5mm,0.30,0.30,DigiKey,535-ABS07-120-32.768KHZ-T-ND
+ANT1,2450AT18x100,Johanson Technology,2.4GHz chip antenna SMD,1,1808 4.5x2mm,0.40,0.40,DigiKey,712-2450AT18x100-ND
+J1,USB4110-GF-A,GCT,USB Type-C receptacle 2.0 SMD right-angle,1,SMD,0.80,0.80,DigiKey,2073-USB4110-GF-A-ND
+J2,5035651092,Molex,FPC connector 10-pin 0.5mm pitch bottom contact,1,SMD,0.60,0.60,DigiKey,WM6134CT-ND
+BT1,LP301020,Generic,LiPo battery 3.7V 150mAh 30x10x2mm,1,Pouch,3.00,3.00,N/A,Custom
+L1,LQW18AN3N9C00D,Murata,3.9nH inductor 0603 RF matching,1,0603,0.10,0.10,DigiKey,490-LQW18AN3N9C00D-ND
+L2,XFL4020-222MEC,Coilcraft,2.2uH inductor for TPS62740,1,4020,0.50,0.50,DigiKey,XFL4020-222MEC-ND
+LED1,150060RS75000,Wurth,Red LED 0603 charge indicator,1,0603,0.10,0.10,DigiKey,732-150060RS75000-ND
+C1,100nF 0402 X7R,Samsung/Murata,Decoupling capacitor MLCC,15,0402,0.01,0.15,DigiKey,Various
+C2,1uF 0402 X5R,Samsung/Murata,Decoupling capacitor MLCC,3,0402,0.02,0.06,DigiKey,Various
+C3,10uF 0603 X5R,Samsung/Murata,Bulk capacitor for regulator I/O,3,0603,0.05,0.15,DigiKey,Various
+C4,4.7uF 0402 X5R,Samsung/Murata,Capacitor for charger I/O,2,0402,0.03,0.06,DigiKey,Various
+C5,12pF 0402 C0G,Samsung/Murata,32MHz crystal load capacitor,2,0402,0.01,0.02,DigiKey,Various
+C6,6.8pF 0402 C0G,Samsung/Murata,32.768kHz crystal load capacitor,2,0402,0.01,0.02,DigiKey,Various
+C7,2.2pF 0402 C0G,Samsung/Murata,Antenna matching PI filter,1,0402,0.01,0.01,DigiKey,Various
+C8,1.5pF 0402 C0G,Samsung/Murata,Antenna matching PI filter,1,0402,0.01,0.01,DigiKey,Various
+C9,100pF 0402 C0G,Samsung/Murata,nRF52840 DEC5 decoupling,1,0402,0.01,0.01,DigiKey,Various
+C10,800pF 0402 C0G,Samsung/Murata,nRF52840 DEC5-DEC6 coupling,1,0402,0.01,0.01,DigiKey,Various
+R1,10k 0402 1%,Yageo/Vishay,Pull-down resistor for FSR voltage divider,8,0402,0.01,0.08,DigiKey,Various
+R2,100k 0402 1%,Yageo/Vishay,Battery voltage divider,2,0402,0.01,0.02,DigiKey,Various
+R3,10k 0402 1%,Yageo/Vishay,nRESET pull-up,1,0402,0.01,0.01,DigiKey,Various
+R4,4.7k 0402 1%,Yageo/Vishay,I2C pull-up (SDA SCL),2,0402,0.01,0.02,DigiKey,Various
+R5,100k 0402 1%,Yageo/Vishay,TPS62740 EN pull-up,1,0402,0.01,0.01,DigiKey,Various
+R6,2k 0402 1%,Yageo/Vishay,MCP73831 RPROG (500mA charge),1,0402,0.01,0.01,DigiKey,Various
+R7,470R 0402 1%,Yageo/Vishay,LED current limiting,1,0402,0.01,0.01,DigiKey,Various
+R8,5.1k 0402 1%,Yageo/Vishay,USB-C CC1/CC2 pull-down,2,0402,0.01,0.02,DigiKey,Various
+R9,1M 0402,Yageo/Vishay,USB shield to GND,1,0402,0.01,0.01,DigiKey,Various
+D1,Schottky BAT54,STMicro,Schottky diode 30V 200mA SOD-523,1,SOD-523,0.10,0.10,DigiKey,497-BAT54-ND
+J3,TC2050-IDC-NL,Tag-Connect,SWD debug header pogo-pin (no-legs),1,SMD pads,0.00,0.00,N/A,Pads only
+,,,,,,TOTAL:,$62.70,,
