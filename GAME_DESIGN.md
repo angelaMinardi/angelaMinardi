@@ -6,7 +6,7 @@
 
 ## Concept Overview
 
-**Lily Pad Luck** is a cute, strategic card game where you play as a little frog building the ultimate hand of bug cards to leap across enchanted lily pads. Inspired by the roguelike deck-building genre, players collect, combine, and power up cards through a whimsical journey across a magical pond. Each run is different, with charming frog companions, magical lilies, and sparkling rewards.
+**Lily Pad Luck** is a cute, strategic card game where you play as a little frog melding collections of bugs onto lily pads to score points and clear ponds. Inspired by Hand and Foot Canasta's melding and set-collecting mechanics - reimagined as a single-player roguelike - players draw, meld, and complete **Canasta Stacks** of bug cards through a whimsical journey across a magical pond. Each run is different, with charming frog companions, magical lilies, and sparkling rewards.
 
 **Target Audience:** Women 18-35 who enjoy cozy games, casual strategy, and cute aesthetics
 **Platform:** iOS & Android (portrait orientation, one-hand friendly)
@@ -18,75 +18,140 @@
 ## Core Loop
 
 ```
- Pick a Pond Path --> Play Bug Cards --> Score Ribbits --> Earn Dewdrops --> Visit Shops/Events --> Repeat
-       |                                                                          |
-       +--- Each pond has 3 acts (Small Pond, Garden Pond, Enchanted Lake) -------+
+ Pick a Pond Path --> Draw & Meld Bugs --> Complete Stacks --> Score Ribbits --> Visit Shops/Events --> Repeat
+       |                                                                              |
+       +--- Each pond has 3 acts (Garden Pond, Mushroom Marsh, Enchanted Lake) -------+
 ```
 
-### 1. The Deck - Bug Cards (instead of playing cards)
+### The Hand and Foot Mechanic
 
-Instead of a traditional 52-card poker deck, players use a **Bug Deck** themed around insects a frog would catch. Cards have two properties:
+Inspired by Hand and Foot Canasta, each round the player receives **two piles of cards**:
+
+- **The Hand** (11 cards) - Your starting cards. Play from these first.
+- **The Foot** (11 cards) - A face-down reserve pile. You "hop to your Foot" (pick it up) once your Hand is empty, unlocking fresh cards and a bonus.
+
+**The strategic tension:** You want to empty your Hand quickly to reach your Foot, but you also need to meld wisely. Rushing burns good cards; waiting too long means you run out of turns before completing enough stacks.
+
+### 1. The Deck - Bug Cards
+
+The deck contains **108 bug cards** (two copies of each, like canasta uses double decks). Cards have two properties:
 
 | Property | Values |
 |----------|--------|
-| **Bug Type** (suit equivalent) | Firefly, Butterfly, Ladybug, Dragonfly |
-| **Nectar Value** (rank equivalent) | 1 - 13 (Dewdrop, 2-10, Bloom, Petal, Crown) |
+| **Bug Type** (color/suit) | Firefly (amber), Butterfly (pink), Ladybug (red), Dragonfly (teal), Beetle (brown), Moth (lavender) |
+| **Nectar Value** (rank) | 1-12 (Dewdrop, 2-10, Bloom, Petal, Crown) |
+
+**Special Cards:**
+- **Wilds - Chameleon Tongue Cards (x6):** Can substitute for any bug type in a meld. Max 2 wilds per meld (unless a Charm says otherwise).
+- **Poison Ivy Cards (x4):** Penalty cards. If stuck in your hand at end of round, -100 Ribbits each. Can be discarded with a special action or melded away by certain Charms.
 
 **Visual Design:**
 - Fireflies glow with warm amber, cards shimmer gently
 - Butterflies have pastel wings with watercolor patterns
 - Ladybugs are round and cheerful with polka dots
 - Dragonflies have iridescent teal/purple wings
+- Beetles have shiny shell textures with earth tones
+- Moths have soft, dusty lavender wings with moon patterns
 
-### 2. Hand Combos - "Catches"
+### 2. Melding - Building on Lily Pads
 
-Players are dealt bug cards and form **Catches** (hand types) to score points, called **Ribbits**. Similar to poker hands but with frog-themed names:
+Instead of playing poker hands, you **meld** groups of 3+ matching bug cards onto **lily pads** (the play area). This is the core action each turn.
 
-| Catch Name | Combo | Base Ribbits | Multiplier |
+**Turn Structure:**
+1. **Draw Phase:** Draw 2 cards from the Pond (draw pile) OR pick up the top 5 cards of the Discard Pile (the "Puddle") - but only if you can immediately meld the top card.
+2. **Meld Phase:** Place melds of 3+ matching bugs onto lily pads, or add cards to existing melds. You can meld as many groups as you want per turn.
+3. **Discard Phase:** Discard 1 card to the Puddle to end your turn.
+
+**Meld Rules:**
+- A meld needs **at least 3 cards of the same nectar value** (e.g., three 7s of any bug type)
+- You can mix bug types within a meld (it's about the number, not the suit)
+- Max **2 Chameleon Tongue wilds** per meld
+- You must always have more natural cards than wilds in a meld
+
+### 3. Canasta Stacks - Completing a Lily Pad
+
+When a meld reaches **7 cards**, it becomes a completed **Canasta Stack** - the lily pad blooms! This is the primary scoring goal.
+
+| Stack Type | Requirement | Ribbits | Visual |
 |---|---|---|---|
-| **Single Snack** | 1 card | 5 | x1 |
-| **Double Hop** | Pair | 10 | x2 |
-| **Triple Splash** | Three of a kind | 30 | x3 |
-| **Lily Line** | Straight (5 in sequence) | 30 | x4 |
-| **Garden Patch** | Flush (5 same bug type) | 35 | x4 |
-| **Puddle House** | Full house | 40 | x4 |
-| **Quad Croak** | Four of a kind | 60 | x7 |
-| **Lily Line Garden** | Straight flush | 100 | x8 |
-| **Royal Pond** | Royal flush equivalent | 100 | x8 |
-| **Five Flies** | Five of a kind (with wilds) | 120 | x12 |
+| **Natural Bloom** | 7 cards, NO wilds | 500 | Lily pad blooms with golden flowers |
+| **Mixed Bloom** | 7 cards, has wilds | 300 | Lily pad blooms with silver flowers |
+| **Wild Bloom** | 7 Chameleon Tongue wilds | 1000 | Lily pad blooms with rainbow flowers (very rare!) |
+| **Pure Garden** | 7 cards, all same bug type AND same value | 750 | Lily pad blooms with glowing petals (new mechanic!) |
 
-### 3. Scoring
+### 4. Round Scoring
 
-**Ribbits = (Base Ribbits + Card Nectar Values) x Multiplier**
+A round ends when a player **goes out** (empties both Hand and Foot, with at least 2 completed Canasta Stacks) or runs out of turns.
 
-Each card played adds its nectar value to the base. Charms (jokers) modify these scores in wild, stackable ways.
+| Scoring Element | Ribbits |
+|---|---|
+| Each Natural Bloom | +500 |
+| Each Mixed Bloom | +300 |
+| Each Wild Bloom | +1000 |
+| Each Pure Garden | +750 |
+| **Going Out Bonus** | +200 |
+| **Hopped to Foot Bonus** | +100 |
+| Card values in completed melds | +Nectar value each |
+| Cards left in Hand/Foot (penalty) | -Nectar value each |
+| Poison Ivy cards left in hand | -100 each |
+| **Charm bonuses** | Varies |
+
+**Round Target:** Each round on the pond map has a **Ribbit Goal** (e.g., "Score 800 Ribbits"). Meet or exceed it to clear the round. Failing costs a life (lily petal).
+
+### 5. The Turn Limit & Tension
+
+Unlike traditional canasta (which is multiplayer), Lily Pad Luck uses a **turn counter** to create tension:
+
+- Each round gives you **12-18 turns** (varies by difficulty/act)
+- Displayed as lily pads lighting up around a circular tracker
+- Charms can grant bonus turns
+- The Puddle (discard pile) pickup is risky but powerful - grabbing 5 cards accelerates your melds but you burn a turn on one big draw
+- **Going out before the turn limit** awards bonus Ribbits scaled to remaining turns
+
+### 6. Meld Thresholds (Canasta Opening Rule)
+
+Like Hand and Foot, your **first meld each round** must meet a minimum nectar value total:
+
+| Act | Minimum First Meld |
+|-----|-------------------|
+| Act 1 | 50 nectar total |
+| Act 2 | 90 nectar total |
+| Act 3 | 120 nectar total |
+
+This prevents dumping low-value cards early and forces strategic planning about when to start melding.
 
 ---
 
-## Key Mechanic - Charms (Joker Equivalent)
+## Key Mechanic - Charms
 
-**Charms** are the heart of the strategy. They are collectible magical items that modify scoring in creative ways. Each charm is a cute, animated object that sits on a lily pad above your hand.
+**Charms** are the heart of the strategy. They are collectible magical items that modify melding, scoring, and card draw in creative ways. Each charm is a cute, animated object displayed alongside your play area. You can hold up to **5 Charms** per run.
 
 ### Charm Categories
 
 **Frog Friends** - Tiny companion frogs that grant passive bonuses:
-- **Rosie** (pink tree frog) - +3 Mult when you play Butterflies
-- **Mossy** (green bullfrog) - Earns 4 Dewdrops per hand played
-- **Sunny** (golden frog) - +20 Ribbits when hand contains a Firefly
-- **Bubbles** (blue poison dart frog) - Each Dragonfly card gives +2 Mult
-- **Violet** (purple rain frog) - x1.5 Mult if hand has exactly 4 cards
+- **Rosie** (pink tree frog) - Butterfly cards count as +2 higher nectar value in melds
+- **Mossy** (green bullfrog) - Earns 4 Dewdrops every time you complete a Canasta Stack
+- **Sunny** (golden frog) - +50 Ribbits for each Firefly in a completed Natural Bloom
+- **Bubbles** (blue poison dart frog) - Dragonfly melds only need 5 cards to become a Canasta Stack
+- **Violet** (purple rain frog) - Drawing from the Puddle gives you 7 cards instead of 5
+- **Bramble** (brown toad) - Poison Ivy cards become worth +50 Ribbits instead of -100 when melded with Beetles
+- **Luna** (white tree frog) - Moth cards count as wilds in melds (but stacks still count as Natural Bloom!)
 
 **Pond Trinkets** - Magical items found around the pond:
-- **Moonstone Pebble** - x2 Mult on the first hand of each round
-- **Lucky Clover** - +1 to all Nectar values
-- **Dewdrop Tiara** - +10 Ribbits for every card above 10
-- **Mushroom Cap** - Retrigger all Ladybug cards once
-- **Glass Jar** - Collect Fireflies; at 5, gain x4 Mult and release them
+- **Moonstone Pebble** - Your first meld each round has no minimum nectar requirement
+- **Lucky Clover** - +1 to all nectar values across your entire deck
+- **Dewdrop Tiara** - +20 Ribbits per Crown (value 12) card in completed stacks
+- **Mushroom Cap** - Completed stacks of Ladybugs score double
+- **Glass Jar** - Each time you meld Fireflies, store one. At 5 stored, gain a free Wild Bloom.
+- **Silk Cocoon** - When you hop to your Foot, draw 3 extra cards
+- **Acorn Cup** - +2 bonus turns each round
 
 **Lily Enchantments** - Powerful but conditional:
-- **Blooming Lily** - x3 Mult if you score exactly a Garden Patch
-- **Golden Lily** - Converts all Dewdrop earnings to double value
-- **Phantom Lily** - Creates a ghost copy of your highest card
+- **Blooming Lily** - x2 to ALL scoring if you complete 3+ Canasta Stacks in a round
+- **Golden Lily** - Natural Blooms score 750 instead of 500
+- **Phantom Lily** - When you meld, a ghost copy of one card is added for free
+- **Frost Lily** - Freeze the Puddle: discard pile cannot be picked up by bosses (boss mechanic)
+- **Twin Lily** - Start each round with your Hand and Foot as identical copies
 
 ### Charm Rarity (indicated by sparkle effects)
 
@@ -107,7 +172,7 @@ Each run follows a branching path across a pond, displayed as lily pads connecte
 
 | Icon | Type | Description |
 |------|------|-------------|
-| Bug icon | **Bug Catch** (battle) | Score enough Ribbits to pass. 3-4 hands per round. Failing = losing a life (lily petal). |
+| Bug icon | **Bug Catch** (battle) | Meld cards and complete Canasta Stacks to hit the Ribbit Goal within the turn limit. Failing = losing a life (lily petal). |
 | Shopping bag | **Frog Market** | Spend Dewdrops on new Charms, card packs, or removals |
 | Sparkle | **Enchantment Pond** | Choose 1 of 3 random buffs to your deck or Charms |
 | Treasure chest | **Treasure Toad** | Open a chest for free cards or Charms |
@@ -131,12 +196,13 @@ Cards can be upgraded at Enchantment Ponds or through Charm effects:
 
 | Enhancement | Visual | Effect |
 |---|---|---|
-| **Sparkling** | Glitter overlay | +30 Ribbits |
-| **Gilded** | Gold foil edges | +3 Mult |
-| **Wild** | Rainbow shimmer | Counts as all bug types |
-| **Lucky** | Four-leaf clover | 1 in 5 chance to x2 final score |
-| **Glass** | Translucent / crystal | +100 Ribbits, destroyed after scoring |
-| **Botanical** | Flower crown on bug | Earns 6 Dewdrops when played |
+| **Sparkling** | Glitter overlay | +30 Ribbits when part of a completed stack |
+| **Gilded** | Gold foil edges | Counts as 2 cards toward a Canasta Stack |
+| **Wild** | Rainbow shimmer | Acts as a Chameleon Tongue but doesn't count against Natural Bloom |
+| **Lucky** | Four-leaf clover | 1 in 5 chance to duplicate itself when melded |
+| **Glass** | Translucent / crystal | +100 Ribbits, destroyed after the round ends |
+| **Botanical** | Flower crown on bug | Earns 6 Dewdrops when melded |
+| **Magnetic** | Tiny lightning sparks | When drawn, pull another card of the same value from the deck |
 
 ---
 
@@ -173,42 +239,48 @@ Players customize a personal frog who sits on the main lily pad during gameplay:
 
 ```
 +---------------------------+
-|  [Ribbits Goal]  [Lives]  |   <- Top bar: score target + lily petal lives
+|[Ribbit Goal][Turns][Lives]|   <- Top bar: target, turn counter, lily petal lives
 |                           |
-|  [ Charm 1 ][ Charm 2 ]  |   <- Charm slots (scrollable, up to 5 visible)
-|  [ Charm 3 ][ Charm 4 ]  |
+| [Charm1][Charm2]...[Charm5]   <- Charm row (tap to inspect)
 |                           |
-|   +----+  +----+  +----+  |
-|   |Bug |  |Bug |  |Bug |  |   <- Selected cards (played area)
-|   +----+  +----+  +----+  |
+| +------+ +------+ +------+|
+| |Meld 1| |Meld 2| |Meld 3||  <- Lily Pad melding area (scrollable)
+| | *  *  | | *  * | | *    ||     Shows cards stacked, blooms when 7 reached
+| +------+ +------+ +------+|
 |                           |
-|  [  PLAY HAND  ] [DISCARD]|   <- Action buttons
+| [MELD] [DRAW POND][PICKUP]|   <- Action: meld selection, draw 2, or grab Puddle
 |                           |
-|  +--+ +--+ +--+ +--+ +--+|   <- Hand of cards (swipeable)
-|  |  | |  | |  | |  | |  ||
-|  +--+ +--+ +--+ +--+ +--+|
+| +--+ +--+ +--+ +--+ +--+ |   <- Your Hand (swipeable, tap to select)
+| |  | |  | |  | |  | |  | |
+| +--+ +--+ +--+ +--+ +--+ |
 |                           |
-|  [ Frog Avatar :) ]       |   <- Your frog at the bottom
+| [Puddle: 3]  [Foot: 11]  |   <- Discard pile count + Foot pile (locked until Hand empty)
+| [ Frog Avatar :) ]        |   <- Your frog, reacts to gameplay
 +---------------------------+
 ```
 
 ### Key UX Principles
 
 - **One-hand play:** All interactions reachable with thumb in portrait mode
-- **Drag to select:** Drag finger across cards to select multiple, tap to deselect
-- **Gentle haptics:** Soft vibration on card plays, satisfying buzz on big scores
-- **No time pressure:** Take as long as you want per hand
-- **Undo button:** Can undo card selection (not card play) freely
-- **Accessibility:** Colorblind-friendly bug type icons, scalable text, screen reader support
+- **Tap to select, tap to meld:** Tap cards to select them, then tap MELD to place them on a lily pad
+- **Drag to reorder:** Drag cards in hand to sort by type or value
+- **Auto-sort button:** Sorts hand by bug type or by nectar value (toggle)
+- **Gentle haptics:** Soft vibration on melds, satisfying buzz on Canasta Stack completion
+- **No real-time pressure:** Take as long as you want per turn (turns are limited, not time)
+- **Undo button:** Can undo card selection and the most recent meld (once per turn)
+- **Meld preview:** Selecting cards highlights which lily pad they'd join, shows point preview
+- **Accessibility:** Colorblind-friendly bug type icons + unique shapes per type, scalable text, screen reader support
 
 ### Animation & Juice
 
 - Cards hop (like a frog!) when selected
-- Scoring triggers ripple effects on the pond background
-- Big scores cause your frog to do a happy leap
+- Melding cards causes them to leap onto the lily pad with a splash
+- Completing a Canasta Stack triggers a blooming flower animation on the lily pad
+- Hopping to your Foot triggers a celebratory frog jump animation
 - Charms wiggle and glow when they activate
 - Boss defeat triggers a rain of sparkles and flowers
 - Screen transitions are gentle lily pad dissolves
+- Picking up the Puddle shows cards flying up like scattered leaves
 
 ---
 
@@ -234,10 +306,12 @@ Players customize a personal frog who sits on the main lily pad during gameplay:
 - **Charm Collection:** Log of all discovered Charms (collectible sticker book style)
 - **Card Skins:** Seasonal bug designs unlocked through play
 - **Challenge Modes:** Unlocked after first full clear
-  - *Speed Pond:* Timer-based rounds
-  - *Tiny Deck:* Start with only 10 cards
-  - *Charm Storm:* Start with 5 random charms but harder scoring goals
-  - *Zen Mode:* No fail state, just build combos and relax
+  - *Speed Pond:* Only 8 turns per round - meld fast!
+  - *No Foot:* No Foot pile - you only get your Hand each round
+  - *Wild Chaos:* Deck is 50% Chameleon Tongues - build Wild Blooms galore
+  - *Poison Garden:* Tons of Poison Ivy cards shuffled in - manage the risk
+  - *Charm Storm:* Start with 5 random Charms but Ribbit Goals are doubled
+  - *Zen Mode:* No fail state, unlimited turns - just meld and relax
 
 ### Daily Challenges
 
@@ -270,27 +344,29 @@ Players customize a personal frog who sits on the main lily pad during gameplay:
 
 ## What Makes This Different From Balatro
 
-| Balatro | Lily Pad Luck |
-|---------|---------------|
-| Poker aesthetic, casino chips | Cute frog / nature / cottagecore aesthetic |
-| Abstract / retro pixel art | Soft watercolor art style |
-| Traditional playing cards | Bug-themed cards with nature suits |
-| Jokers | Charms (Frog Friends, Trinkets, Enchantments) |
-| Planet/Tarot/Spectral cards | Enchantment Pond upgrades + Treasure Toad finds |
-| Antes & blinds | Pond Guardians & themed boss encounters |
-| Dark/neon color palette | Pastel / warm / nature color palette |
-| No avatar / character | Customizable frog companion with expressions |
-| Desktop-first design | Mobile-first, one-hand portrait play |
-| Gender-neutral marketing | Marketed toward women with cozy game aesthetics |
-| Minimal narrative | Light narrative (saving the pond from threats) |
-| No social features | Daily challenges + score sharing |
+| Aspect | Balatro | Lily Pad Luck |
+|--------|---------|---------------|
+| **Base Card Game** | Poker (hand ranking) | Hand and Foot Canasta (melding & set collection) |
+| **Core Action** | Form a single poker hand per play | Meld groups across multiple lily pads over many turns |
+| **Pacing** | Quick burst hands | Multi-turn rounds with draw/meld/discard rhythm |
+| **Card Mechanic** | Evaluate one 5-card hand at a time | Build up melds incrementally toward 7-card Canasta Stacks |
+| **Two-Pile System** | N/A | Hand and Foot - strategic tension of when to exhaust your Hand |
+| **Discard Strategy** | N/A | Puddle (discard pile) pickup creates risk/reward decisions |
+| **Wild Cards** | Jokers modify scoring | Chameleon Tongues integrated into melds with ratio limits |
+| **Penalty Cards** | N/A | Poison Ivy cards add risk management |
+| **Scoring** | Per-hand with multipliers | Cumulative across completed stacks + bonuses |
+| **Aesthetic** | Poker / casino / retro pixel | Cute frog / nature / cottagecore watercolor |
+| **Platform** | Desktop-first | Mobile-first, one-hand portrait play |
+| **Avatar** | None | Customizable frog companion with expressions |
+| **Narrative** | Minimal | Light story (saving the pond from threats) |
+| **Social** | None | Daily challenges + score sharing |
 
 ---
 
 ## Summary
 
-**Lily Pad Luck** takes the deeply satisfying combo-building loop of roguelike card games and wraps it in a charming, accessible, frog-themed package. It respects the player's time and wallet with ethical monetization, rewards creativity with a deep charm system, and creates a cozy world players will want to return to daily. Every ribbit counts!
+**Lily Pad Luck** combines the cozy satisfaction of collecting and melding sets with the strategic depth of a roguelike card game. Built on Hand and Foot Canasta's draw-meld-discard rhythm, it offers a fundamentally different experience from poker-based card roguelikes - one centered on building up lily pads over multiple turns rather than evaluating single hands. With ethical monetization, a deep Charm system, and a charming frog-filled world, it's a pond players will want to return to daily.
 
 ---
 
-*"Hop in. Build your deck. Save the pond."*
+*"Hop in. Meld your bugs. Save the pond."*
